@@ -4,6 +4,10 @@ from django.conf import settings
 import pwd
 import re
 import os
+from django.utils.log import getLogger
+
+log = getLogger(__name__)
+
 
 class Command(BaseCommand):
     def handle(self, *args, **options):
@@ -18,4 +22,5 @@ class Command(BaseCommand):
                 except KeyError as ex:
                     username = member.name
                     if re.match(r'^[0-9a-z]+$', username):
+                        log.info("Adding user: %s" % username)
                         os.system("/usr/sbin/useradd -m %s" % username)
