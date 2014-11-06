@@ -52,3 +52,11 @@ docs/_build/
 
 # PyBuilder
 target/
+
+*.swp
+/bin/
+/include/
+/local/
+/manage.py
+/project/
+/src/
